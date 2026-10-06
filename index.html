@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>UniAssist AI</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            U
+        </div>
+
+        <div>
+
+            <h2>
+                UniAssist AI
+            </h2>
+
+            <p>
+                Academic Assistant
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="new-chat"
+        onclick="newChat()">
+
+        + New Chat
+
+    </button>
+
+
+    <div class="menu">
+
+        <p class="menu-title">
+            MENU
+        </p>
+
+
+        <a href="#chatSection"
+           class="active"
+           onclick="setActive(this)">
+
+            💬 Chat Assistant
+
+        </a>
+
+
+        <a href="#documents"
+           onclick="setActive(this)">
+
+            📚 My Documents
+
+        </a>
+
+
+        <a href="#notes"
+           onclick="setActive(this)">
+
+            📝 Study Notes
+
+        </a>
+
+
+        <a href="#quiz"
+           onclick="setActive(this)">
+
+            🧠 Quiz Generator
+
+        </a>
+
+
+        <a href="#exam"
+           onclick="setActive(this)">
+
+            📖 Exam Preparation
+
+        </a>
+
+
+        <a href="#sources"
+           onclick="setActive(this)">
+
+            🔎 Source References
+
+        </a>
+
+
+        <a href="#profile"
+           onclick="setActive(this)">
+
+            👤 Student Profile
+
+        </a>
+
+    </div>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="online">
+
+            <span></span>
+
+            RAG System Online
+
+        </div>
+
+        <p>
+            University Academic Assistance
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div>
+
+            <p class="small-title">
+                UNIVERSITY AI PLATFORM
+            </p>
+
+            <h1>
+                Academic Assistance
+            </h1>
+
+        </div>
+
+
+        <div class="student">
+
+            Student
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <div class="hero">
+
+        <div class="hero-text">
+
+            <div class="tag">
+
+                ✨ Retrieval-Augmented Generation
+
+            </div>
+
+
+            <h2>
+
+                Learn smarter with
+                your academic resources.
+
+            </h2>
+
+
+            <p>
+
+                UniAssist AI helps university students
+                ask questions, generate notes, prepare
+                for exams and create quizzes from their
+                academic study material.
+
+            </p>
+
+        </div>
+
+
+        <div class="hero-icon">
+
+            🎓
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <div class="dashboard">
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                📚
+            </div>
+
+            <div>
+
+                <h3 id="documentNumber">
+                    0
+                </h3>
+
+                <p>
+                    Documents
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                💬
+            </div>
+
+            <div>
+
+                <h3>
+                    AI
+                </h3>
+
+                <p>
+                    Assistant
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                📝
+            </div>
+
+            <div>
+
+                <h3>
+                    Notes
+                </h3>
+
+                <p>
+                    Generator
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🧠
+            </div>
+
+            <div>
+
+                <h3>
+                    Quiz
+                </h3>
+
+                <p>
+                    Generator
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================= CHAT ================= -->
+
+    <div
+        class="chat-box"
+        id="chatSection">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    💬 AI Study Assistant
+                </h2>
+
+                <p>
+                    Ask questions about your academic
+                    material.
+                </p>
+
+            </div>
+
+
+            <span class="status">
+                ● Online
+            </span>
+
+        </div>
+
+
+
+        <div
+            class="messages"
+            id="messages">
+
+
+            <div class="message bot">
+
+                <div class="avatar">
+                    U
+                </div>
+
+
+                <div>
+
+                    <div class="bubble">
+
+                        Hello! 👋
+
+                        <br><br>
+
+                        I am <b>UniAssist AI</b>.
+
+                        <br><br>
+
+                        Upload your study material
+                        and ask me academic questions.
+
+                    </div>
+
+                    <small>
+                        Just now
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- SUGGESTIONS -->
+
+        <div class="suggestions">
+
+            <button
+                onclick="askQuestion('What is RAG?')">
+
+                What is RAG?
+
+            </button>
+
+
+            <button
+                onclick="askQuestion('Explain the topic simply')">
+
+                Explain simply
+
+            </button>
+
+
+            <button
+                onclick="askQuestion('Give important exam points')">
+
+                Exam points
+
+            </button>
+
+        </div>
+
+
+
+        <!-- INPUT -->
+
+        <div class="input-area">
+
+            <input
+                id="question"
+                type="text"
+                placeholder="Ask your academic question...">
+
+
+            <button
+                onclick="sendMessage()">
+
+                Send ➤
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= DOCUMENTS ================= -->
+
+    <div
+        class="page-section"
+        id="documents">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    📚 My Documents
+                </h2>
+
+                <p>
+                    Upload academic resources
+                    for the RAG system.
+                </p>
+
+            </div>
+
+
+            <span id="fileCount">
+                0 files
+            </span>
+
+        </div>
+
+
+        <label
+            class="upload"
+            for="fileInput">
+
+
+            <div class="upload-icon">
+                ☁
+            </div>
+
+
+            <h3>
+                Upload Academic Files
+            </h3>
+
+
+            <p>
+                PDF, DOCX and TXT files supported
+            </p>
+
+
+            <button
+                type="button"
+                class="choose-button">
+
+                Choose Files
+
+            </button>
+
+        </label>
+
+
+        <input
+            type="file"
+            id="fileInput"
+            multiple
+            accept=".pdf,.doc,.docx,.txt">
+
+
+        <div
+            id="fileList"
+            class="file-list">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= STUDY NOTES ================= -->
+
+    <div
+        class="page-section"
+        id="notes">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    📝 Study Notes
+                </h2>
+
+                <p>
+                    Generate simple notes from
+                    your academic material.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Summarize Topic
+                </h3>
+
+                <p>
+                    Convert long study material
+                    into short notes.
+                </p>
+
+                <button
+                    onclick="generateNotes()">
+
+                    Generate Notes
+
+                </button>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Important Points
+                </h3>
+
+                <p>
+                    Find important concepts
+                    for revision.
+                </p>
+
+                <button
+                    onclick="importantPoints()">
+
+                    Find Points
+
+                </button>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    📖
+                </div>
+
+                <h3>
+                    Definitions
+                </h3>
+
+                <p>
+                    Generate simple definitions
+                    from your material.
+                </p>
+
+                <button
+                    onclick="generateDefinitions()">
+
+                    Generate
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            id="notesOutput"
+            class="output">
+
+            Select an option to generate
+            study material.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= QUIZ ================= -->
+
+    <div
+        class="page-section"
+        id="quiz">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    🧠 Quiz Generator
+                </h2>
+
+                <p>
+                    Create practice questions
+                    from academic topics.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="quiz-controls">
+
+
+            <label>
+
+                Number of Questions
+
+                <select id="questionNumber">
+
+                    <option value="5">
+                        5
+                    </option>
+
+                    <option value="10">
+                        10
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Difficulty
+
+                <select id="difficulty">
+
+                    <option>
+                        Easy
+                    </option>
+
+                    <option>
+                        Medium
+                    </option>
+
+                    <option>
+                        Hard
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <button
+                onclick="generateQuiz()">
+
+                Generate Quiz
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="quizOutput"
+            class="output">
+
+            Select your options and
+            generate a quiz.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= EXAM PREPARATION ================= -->
+
+    <div
+        class="page-section"
+        id="exam">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    📖 Exam Preparation
+                </h2>
+
+                <p>
+                    Prepare important questions
+                    for your examinations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="exam-grid">
+
+
+            <button
+                onclick="examQuestions(2)">
+
+                <span>
+                    📝
+                </span>
+
+                2-Mark Questions
+
+            </button>
+
+
+            <button
+                onclick="examQuestions(5)">
+
+                <span>
+                    📘
+                </span>
+
+                5-Mark Questions
+
+            </button>
+
+
+            <button
+                onclick="examQuestions(10)">
+
+                <span>
+                    📚
+                </span>
+
+                10-Mark Questions
+
+            </button>
+
+
+            <button
+                onclick="quickRevision()">
+
+                <span>
+                    ⚡
+                </span>
+
+                Quick Revision
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="examOutput"
+            class="output">
+
+            Select an exam preparation option.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= SOURCES ================= -->
+
+    <div
+        class="page-section"
+        id="sources">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    🔎 Source References
+                </h2>
+
+                <p>
+                    View the academic sources used
+                    by the RAG system.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="source-card">
+
+
+            <div class="source-icon">
+                📄
+            </div>
+
+
+            <div>
+
+                <h3>
+                    University Study Material
+                </h3>
+
+                <p>
+                    Source used for generating
+                    academic answers.
+                </p>
+
+                <span>
+                    RAG Retrieved Source
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="source-card">
+
+
+            <div class="source-icon">
+                📘
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Uploaded Course Notes
+                </h3>
+
+                <p>
+                    Relevant content retrieved
+                    from uploaded documents.
+                </p>
+
+                <span>
+                    Document Reference
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= PROFILE ================= -->
+
+    <div
+        class="page-section"
+        id="profile">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    👤 Student Profile
+                </h2>
+
+                <p>
+                    Student information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-card">
+
+
+            <div class="profile-avatar">
+                H
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Student
+                </h2>
+
+                <p>
+                    University Student
+                </p>
+
+                <br>
+
+                <p>
+                    <b>Course:</b>
+                    Computer Science
+                </p>
+
+                <p>
+                    <b>Role:</b>
+                    Student
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <span>
+            UniAssist AI • RAG Chatbot
+            for University Academic Assistance
+        </span>
+
+        <span>
+            Student Project
+        </span>
+
+    </footer>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
